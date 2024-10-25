@@ -11,6 +11,7 @@ resource "aws_iam_instance_profile" "test_profile" {
 
 #Resources Block
 resource "aws_instance" "TF_app_server" {
+#AWS Linux 2 AMI  
 ami = "ami-074c42dd5ddb28c14"
 instance_type = "t2.micro"
 iam_instance_profile = aws_iam_instance_profile.test_profile.name
