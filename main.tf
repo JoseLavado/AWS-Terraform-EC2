@@ -1,3 +1,5 @@
+#Sample code to deploy an EC2 into AWS
+
 #Provider Block
 provider "aws" {
     profile = "default"
