@@ -17,6 +17,7 @@ iam_instance_profile = aws_iam_instance_profile.test_profile.name
 tags ={
     Name = "TF_EC2_app_server"
     Owner ="Jose Lavado"
+    project = "Terraform"
 }
 
 }
