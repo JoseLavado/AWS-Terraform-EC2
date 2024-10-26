@@ -1,24 +1,10 @@
 #Sample code to deploy an EC2 into AWS
 
-#Provider Block
-provider "aws" {
-    profile = "default"
-    region = "ca-central-1"
-}
-
-resource "aws_iam_instance_profile" "test_profile" {
-  name = "test_profile"
-  role = "SSMRoleForEC2"
-}
-
-#Resources Block
-resource "aws_instance" "TF_app_server" {
-#AWS Linux 2 AMI  
-ami = "ami-074c42dd5ddb28c14"
-instance_type = "t2.micro"
-iam_instance_profile = aws_iam_instance_profile.test_profile.name
-
-tags ={
+resource "aws_instance" "example_instance" {
+  instance_type        = var.ec2_instance_type
+  ami                  = var.image_id
+  iam_instance_profile = data.aws_iam_instance_profile.existing_role.role_name
+  tags ={
     Name = "TF_EC2_app_server"
     Owner ="Jose Lavado"
     project = "Terraform"
